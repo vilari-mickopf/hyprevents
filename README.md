@@ -8,6 +8,10 @@ event strings to hyprevents stdin. see usage below for an example using socat.
 
 # Install
 ```bash
+yay -S hyprevents-git
+```
+or
+```bash
 sudo make install
 ```
 
