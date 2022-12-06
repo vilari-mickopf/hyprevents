@@ -8,7 +8,7 @@ event strings to hyprevents stdin. see usage below for an example using socat.
 
 # Install
 ```bash
-sudo ./install
+sudo make install
 ```
 
 # Usage

@@ -1,6 +1,0 @@
-#! /bin/sh
-
-install -Dm755 hyprevents /usr/bin/hyprevents
-
-mkdir -p /usr/share/hyprevents/
-install -Dm644 events_handler /usr/share/hyprevents/events_handler
