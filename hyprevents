@@ -13,12 +13,12 @@
 #
 # Usage:
 #
-#   cp /path/to/hyprevents_default.sh custom_event_file.sh
+#   cp /usr/share/hyprevents/events_handler custom_event_file
 #
 #   In custom_event_file.sh, add implementations for the events you want to handle.
 #
 #   socat -u UNIX-CONNECT:/tmp/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock \
-#     EXEC:"/path/to/hyprevents /path/to/custom_event_file.sh",nofork
+#     EXEC:"hyprevents custom_event_file",nofork
 #
 # Reload custom_event_file.sh:
 #   killall hyprevents -USR1
@@ -28,7 +28,7 @@
 
 # load the default (empty) event implementations
 # shellcheck disable=SC1091
-. "$(dirname "$(readlink -mn "$0")")"/hyprevents_default.sh
+. /usr/share/hyprevents/events_handler
 
 PFS=$IFS
 
