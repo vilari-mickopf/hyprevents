@@ -16,7 +16,7 @@ sudo make install
 ```bash
 cp event_handler custom_event_handler
 ```
-In custom_event_file add implementations for the events you want to handle and run:
+In `custom_event_handler` add implementations for the events you want to handle and run:
 ```bash
 hyprevents --file custom_event_handler
 ```
