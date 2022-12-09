@@ -3,10 +3,7 @@ Invoke shell functions in response to Hyprland socket2 events. Forked from [hypr
 
 The event string is parsed, splitting the data into indivual arguments for each event recevied, a function with the name event_<eventname> is invoked when invoked, the data is passed as named arguments
 
-A seperate program is required to connect to Hyprland socket2 and pass the
-event strings to hyprevents stdin. see usage below for an example using socat.
-
-# Install
+## Install
 ```bash
 yay -S hyprevents-git
 ```
@@ -15,17 +12,21 @@ or
 sudo make install
 ```
 
-# Usage
+## Usage
 ```bash
-cp events_handler custom_event_file
+cp event_handler custom_event_handler
 ```
 In custom_event_file add implementations for the events you want to handle and run:
 ```bash
-socat -u UNIX-CONNECT:/tmp/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock \
-         EXEC:"hyprevents custom_event_file",nofork
+hyprevents --file custom_event_handler
 ```
-Reload custom_event_file with:
+
+Reload event handler with:
 ```bash
-killall hyprevents -USR1
+hyprevents -f custom_event_file --reload
 ```
-_Verbose_: pass '-v' as first argument to hyprevents to print all events to stderr
+
+Kill event handler with:
+```bash
+hyprevents -f custom_event_file --kill
+```
