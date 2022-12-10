@@ -23,10 +23,10 @@ hyprevents --file custom_event_handler
 
 Reload event handler with:
 ```bash
-hyprevents -f custom_event_file --reload
+hyprevents -f custom_event_handler --reload
 ```
 
 Kill event handler with:
 ```bash
-hyprevents -f custom_event_file --kill
+hyprevents -f custom_event_handler --kill
 ```
