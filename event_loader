@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # load the default (empty) event implementations
-. /usr/share/hyprevents/event_handler
+. `dirname $0`/event_handler
 
 PFS=$IFS
 

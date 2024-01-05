@@ -53,8 +53,8 @@ argparse() {
 argparse $0 "$@"
 
 [ -z "$EVENT_FILE" ] && echo "Event handler not provided." && usage && exit
-[ $KILL == 1 ] && pkill -f "/usr/share/hyprevents/event_loader $EVENT_FILE" && exit
-[ $RELOAD == 1 ] && pkill -USR1 -f "/usr/share/hyprevents/event_loader $EVENT_FILE" && exit
+[ $KILL == 1 ] && pkill -f "$(dirname `dirname $0`)/share/hyprevents/event_loader $EVENT_FILE" && exit
+[ $RELOAD == 1 ] && pkill -USR1 -f "$(dirname `dirname $0`)/share/hyprevents/event_loader $EVENT_FILE" && exit
 
 socat -u UNIX-CONNECT:/tmp/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock \
-         EXEC:"/usr/share/hyprevents/event_loader $EVENT_FILE",nofork
+	EXEC:"$(dirname `dirname $0`)/share/hyprevents/event_loader $EVENT_FILE",nofork
