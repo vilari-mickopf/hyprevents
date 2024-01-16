@@ -13,6 +13,8 @@ Options:
 EOF
 }
 
+EVENT_LOADER="$(dirname "$0")/event_loader"
+
 argparse() {
     local args=$(getopt -a -n hyprevents \
                         -o hf:kr \
@@ -50,11 +52,11 @@ argparse() {
     done
 }
 
-argparse $0 "$@"
+argparse "$0" "$@"
 
 [ -z "$EVENT_FILE" ] && echo "Event handler not provided." && usage && exit
-[ $KILL == 1 ] && pkill -f "/usr/share/hyprevents/event_loader $EVENT_FILE" && exit
-[ $RELOAD == 1 ] && pkill -USR1 -f "/usr/share/hyprevents/event_loader $EVENT_FILE" && exit
+[ $KILL == 1 ] && pkill -f "$EVENT_LOADER $EVENT_FILE" && exit
+[ $RELOAD == 1 ] && pkill -USR1 -f "$EVENT_LOADER $EVENT_FILE" && exit
 
-socat -u UNIX-CONNECT:/tmp/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock \
-         EXEC:"/usr/share/hyprevents/event_loader $EVENT_FILE",nofork
+socat -u UNIX-CONNECT:"/tmp/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock" \
+         EXEC:"$EVENT_LOADER $EVENT_FILE",nofork
