@@ -68,6 +68,10 @@ event_openwindow() {
   : # WINDOWADDRESS WORKSPACENAME WINDOWCLASS WINDOWTITLE
 }
 
+event_screencast() {
+  : # STATE OWNER
+}
+
 event_submap() {
   : # SUBMAPNAME
 }

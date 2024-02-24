@@ -58,6 +58,7 @@ while true; do
             "moveworkspace") WORKSPACENAME="$1" MONNAME="$2" event_moveworkspace ;;
             "openlayer") NAMESPACE="$1" event_openlayer ;;
             "openwindow") WINDOWADDRESS="$1" WORKSPACENAME="$2" WINDOWCLASS="$3" WINDOWTITLE="$4" event_openwindow ;;
+            "screencast") STATE="$1" OWNER="$2" event_screencast ;;
             "submap") SUBMAPNAME="$1" event_submap ;;
             "windowtitle") WINDOWADDRESS="$1" event_windowtitle ;;
             "workspace") WORKSPACENAME="$1" event_workspace ;;
