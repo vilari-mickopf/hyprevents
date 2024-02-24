@@ -72,6 +72,10 @@ event_submap() {
   : # SUBMAPNAME
 }
 
+event_windowtitle() {
+  : # WINDOWADDRESS
+}
+
 event_workspace() {
   : # WORKSPACENAME
 }
