@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 
 EVENT_HANDLER="$(dirname "$0")/event_handler"
 
