@@ -9,7 +9,7 @@ Usage: hyprevents -f|--file <event_handler> [options...]
 Options:
   -h, --help        show help message
   -k, --kill        kill already started event handler
-  -r, --reload      realod already started event handler
+  -r, --reload      reload already started event handler
 EOF
 }
 
