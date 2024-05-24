@@ -58,5 +58,5 @@ argparse "$0" "$@"
 [ $KILL == 1 ] && pkill -f "$EVENT_LOADER $EVENT_FILE" && exit
 [ $RELOAD == 1 ] && pkill -USR1 -f "$EVENT_LOADER $EVENT_FILE" && exit
 
-socat -u UNIX-CONNECT:"/tmp/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock" \
+socat -u UNIX-CONNECT:"$XDG_RUNTIME_DIR/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock" \
          EXEC:"$EVENT_LOADER $EVENT_FILE",nofork
