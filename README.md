@@ -3,6 +3,11 @@ Invoke shell functions in response to Hyprland socket2 events. Forked from [hypr
 
 The event string is parsed, splitting the data into individual arguments for each event received, a function with the name event_<eventname> is invoked when invoked, the data is passed as named arguments
 
+## Dependencies
+- `hyprland` obviously
+- `socat` to connect with hyprland events
+- `make`
+
 ## Install
 ```bash
 yay -S hyprevents-git
